@@ -284,17 +284,6 @@ client.on('message', async message => {
     credits[message.author.id] = {
     credits: m
     };
-
-     let userData = credits[message.author.id]; let m = userData.credits + amount; 
-	  credits[message.author.id] = { credits: m }; fs.writeFile("./creditsCode.json", JSON.stringify(userData.credits + amount), (err) => {
-		  if (err) console.error(err); });
-	    message.channel.send(`**🏧 | ${message.author.username}, you received your 💴 ${amount} credits!**`).then(() => { coolDown.add(message.author.id); });
-	    setTimeout(() => { coolDown.remove(message.author.id); },86400000); } });
-	    
-    fs.writeFile("./creditsCode.json", JSON.stringify(userData.credits + amount), (err) => {
-    if (err) console.error(err);
-    });
-    
     message.channel.send(`**:atm: | ${message.author.username}, you received your :yen: ${amount} credits!**`).then(() => {
         coolDown.add(message.author.id);
     });
